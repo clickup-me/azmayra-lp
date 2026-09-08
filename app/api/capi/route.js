@@ -5,7 +5,25 @@ export async function POST(request) {
   const TOKEN = process.env.CAPI_TOKEN;
   if (!TOKEN) return Response.json({ error: 'No token' }, { status: 500 });
 
+  // Ambil IP dari request headers
+  const clientIp = request.headers.get('x-forwarded-for')?.split(',')[0]?.trim()
+    || request.headers.get('x-real-ip')
+    || request.headers.get('cf-connecting-ip')
+    || null;
+
   const body = await request.json();
+
+  // Inject client_ip_address ke setiap event
+  if (body.data && Array.isArray(body.data)) {
+    body.data = body.data.map(event => ({
+      ...event,
+      user_data: {
+        ...event.user_data,
+        ...(clientIp ? { client_ip_address: clientIp } : {})
+      }
+    }));
+  }
+
   const postData = JSON.stringify(body);
 
   return new Promise((resolve) => {
