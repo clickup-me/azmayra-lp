@@ -1270,14 +1270,18 @@ window.addEventListener('scroll', function(){
     capiSend('ViewContent', eid, cd);
   }
 });
+// Lead hanya dikirim 1x per session
+var azLeadSent = false;
 ['heroWaBtn','solWaBtn','varianWaBtn','compareWaBtn','offer1WaBtn','bundleWaBtn','offerWaBtn','finalWaBtn','stickyWaBtn'].forEach(function(id){
   var el = document.getElementById(id);
   if (el) el.addEventListener('click', function(){
+    if (azLeadSent) return;
+    azLeadSent = true;
     var eid = capiGenId();
     var cd = { content_name: 'Hafsah Long Skirt', currency: 'IDR', value: 299000, content_type: 'product' };
     if (typeof fbq !== 'undefined') fbq('track', 'Lead', cd, { eventID: eid });
     capiSend('Lead', eid, cd);
-  }, { once: true });
+  });
 });
 
 /* ===== SCROLL REVEAL ===== */

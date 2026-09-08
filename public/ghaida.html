@@ -1074,14 +1074,18 @@ window.addEventListener('scroll', function(){
 
 // --- Lead via CAPI (hanya tombol Pesan/Order, bukan tanya stok) ---
 // navWaBtn & floatWaBtn = tanya stok → TIDAK masuk
+// Lead hanya dikirim 1x per session
+var azLeadSent = false;
 ["heroWaBtn","solWaBtn","varianWaBtn","offer1WaBtn","offer2WaBtn","offerWaBtn","bundleWaBtn","finalWaBtn","stickyWaBtn"].forEach(function(id){
   var el = document.getElementById(id);
   if (el) el.addEventListener('click', function(){
+    if (azLeadSent) return;
+    azLeadSent = true;
     var eid = capiGenId();
     var cd = { content_name: 'Ghaida Skirt', currency: 'IDR', value: 199000, content_type: 'product' };
     if (typeof fbq !== 'undefined') fbq('track', 'Lead', cd, { eventID: eid });
     capiSend('Lead', eid, cd);
-  }, { once: true });
+  });
 });
 
 /* ===== SCROLL REVEAL ===== */
