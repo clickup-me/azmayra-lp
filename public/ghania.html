@@ -187,19 +187,18 @@ footer{background:var(--bg);color:var(--muted);padding:40px 5vw 100px;text-align
 
 <section class="sec">
   <p class="ey r">Kenapa order via WhatsApp?</p>
-  <h2 class="sh r">Harga Shopee vs WA — <span class="hl">beda Rp50.000.</span></h2>
+  <h2 class="sh r">Harga Shopee vs WA — <span class="hl">beda Rp115.000.</span></h2>
   <div class="compare">
     <div class="cbox shopee r">
       <div style="font-size:12px;font-weight:800;color:#c0392b">🛍️ Shopee Mall</div>
-      <div class="cbox-old">Rp249.000</div>
-      <div class="cbox-price" style="color:#c0392b">Rp199.000</div>
-      <div style="font-size:11.5px;color:#8a6b5e">Voucher tersedia · Antre proses</div>
+      <div class="cbox-price" style="color:#c0392b">Rp344.000</div>
+      <div style="font-size:11.5px;color:#8a6b5e">Dengan voucher · Antre proses</div>
     </div>
     <div class="cbox wa r">
       <div style="font-size:12px;font-weight:800;color:var(--gold-dark)">💬 WhatsApp</div>
-      <div class="cbox-old">Rp199.000</div>
-      <div class="cbox-price" style="color:var(--gold-dark)">Rp149.000</div>
-      <div style="font-size:11.5px;color:#8a7a4f">COD · Bonus tas eco · Proses cepat</div>
+      <div class="cbox-old">Rp344.000</div>
+      <div class="cbox-price" style="color:var(--gold-dark)">Rp229.000</div>
+      <div style="font-size:11.5px;color:#8a7a4f">Hemat Rp115.000 · COD · Bonus tas eco</div>
     </div>
   </div>
   <a href="#" id="compareWaBtn" class="hero-cta r" style="background:var(--gold);color:#14140F;margin-top:20px" target="_blank">
@@ -224,7 +223,7 @@ footer{background:var(--bg);color:var(--muted);padding:40px 5vw 100px;text-align
 </footer>
 
 <div class="sticky-cta">
-  <div class="sticky-price">Rp149.000</div>
+  <div class="sticky-price">Rp229.000</div>
   <a href="#" id="stickyWaBtn" class="sticky-wa" target="_blank">Pesan Sekarang →</a>
 </div>
 
@@ -284,7 +283,7 @@ window.addEventListener('scroll', function(){
   if (!vf && window.scrollY > document.body.scrollHeight * .3) {
     vf = true;
     var eid = capiGenId();
-    var cd = { content_name: 'Ghania Skirt', currency: 'IDR', value: 149000 };
+    var cd = { content_name: 'Ghania Skirt', currency: 'IDR', value: 229000 };
     if (typeof fbq !== 'undefined') fbq('track', 'ViewContent', cd, { eventID: eid });
     capiSend('ViewContent', eid, cd);
   }
@@ -296,7 +295,7 @@ var azLeadSent = false;
     if (azLeadSent) return;
     azLeadSent = true;
     var eid = capiGenId();
-    var cd = { content_name: 'Ghania Skirt', currency: 'IDR', value: 149000, content_type: 'product' };
+    var cd = { content_name: 'Ghania Skirt', currency: 'IDR', value: 229000, content_type: 'product' };
     if (typeof fbq !== 'undefined') fbq('track', 'Lead', cd, { eventID: eid });
     capiSend('Lead', eid, cd);
   });
